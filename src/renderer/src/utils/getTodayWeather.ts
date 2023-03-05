@@ -1,6 +1,7 @@
 import _ from 'lodash'
+import { TodayWeatherType, WeatherType } from './getTodayWeather.d'
 
-export const getTodayWeather = (data: Weather): TodayWeatherType[] => {
+export const getTodayWeather = (data: WeatherType): TodayWeatherType[] => {
   const currentHour = new Date().getHours()
   const time = data.hourly.time.slice(currentHour)
   const precipitation_probability = data.hourly.precipitation_probability.slice(currentHour)
@@ -17,32 +18,4 @@ export const getTodayWeather = (data: Weather): TodayWeatherType[] => {
   }
 
   return _.orderBy(todayWeather, ['time'], ['asc'])
-}
-
-export interface TodayWeatherType {
-  time: string
-  temp: number
-  rain_chance: number
-}
-
-export interface Weather {
-  latitude: number
-  longitude: number
-  generationtime_ms: number
-  utc_offset_seconds: number
-  timezone: string
-  timezone_abbreviation: string
-  elevation: number
-  hourly_units: HourlyUnits
-  hourly: Hourly
-}
-export interface HourlyUnits {
-  time: string
-  temperature_2m: string
-  precipitation_probability: string
-}
-export interface Hourly {
-  time: string[]
-  temperature_2m: number[]
-  precipitation_probability: number[]
 }
