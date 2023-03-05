@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { TodayWeatherType, WeatherType } from './getTodayWeather.d'
+import { TodayWeatherType, WeatherType } from './types'
 
 export const getTodayWeather = (data: WeatherType): TodayWeatherType[] => {
   const currentHour = new Date().getHours()
