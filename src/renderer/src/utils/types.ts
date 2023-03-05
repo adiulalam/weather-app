@@ -1,10 +1,10 @@
-export interface TodayWeatherType {
+export interface CleanedTodayWeatherType {
   time: string
   temp: number
   rain_chance: number
 }
 
-export interface WeatherType {
+export interface TodayWeatherType {
   latitude: number
   longitude: number
   generationtime_ms: number

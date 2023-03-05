@@ -1,13 +1,13 @@
 import _ from 'lodash'
-import { TodayWeatherType, WeatherType } from './types'
+import { CleanedTodayWeatherType, TodayWeatherType } from './types'
 
-export const getTodayWeather = (data: WeatherType): TodayWeatherType[] => {
+export const getTodayWeather = (data: TodayWeatherType): CleanedTodayWeatherType[] => {
   const currentHour = new Date().getHours()
   const time = data.hourly.time.slice(currentHour)
   const precipitation_probability = data.hourly.precipitation_probability.slice(currentHour)
   const temperature_2m = data.hourly.temperature_2m.slice(currentHour)
 
-  const todayWeather: TodayWeatherType[] = []
+  const todayWeather: CleanedTodayWeatherType[] = []
 
   for (let i = 0; i < time.length; i++) {
     todayWeather.push({
