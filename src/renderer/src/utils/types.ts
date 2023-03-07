@@ -3,7 +3,6 @@ export interface CleanedTodayWeatherType {
   temp: number
   rain_chance: number
 }
-
 export interface TodayWeatherType {
   latitude: number
   longitude: number
